@@ -1,0 +1,24 @@
+<h1>HI</h1>
+
+<form action="/users" method="post">
+  <label type="text">Email:
+  <input type="text" name="email">
+  </label><br>
+  <label type="text">Name:
+  <input type="text" name="name">
+  </label><br>
+  <input type="submit" value="login">
+</form>
+
+<% if session[:user_id] %>
+<p><%=  User.find(session[:user_id]).name %></p>
+<%end%>
+
+
+<h3>All posts:</h3>
+  <div id="post">
+    <%@posts.each do |post|%>
+    <p><%= post.title%></p>
+    <p><%= post.content%></p>
+  </div>
+<%end%>
